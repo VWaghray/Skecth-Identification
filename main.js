@@ -25,9 +25,4 @@ strokeWeight(13);
     classifier.classify(canvas, gotResult)
     }
 
-function gotResult(error, results) { if (error) { console.error(error); }
-console.log(results); drawn_sketch = results[0].label; 
-document.getElementById('label').innerHTML = 'Your Sketch: ' + drawn_sketch; document.getElementById('confidence').innerHTML = 'Confidence: ' + Math.round(results[0].confidence * 100) + '%';
-    utterThis = new SpeechSynthesisUtterance(result[0].label);
-                                    synth.speak(utterThis);
-                                   }
+function gotResult(error, results) { if (error) { console.error(error); } console.log(results); document.getElementById('label').innerHTML = 'Label: ' + results[0].label; document.getElementById('confidence').innerHTML = 'Confidence: ' + Math.round(results[0].confidence * 100) + '%'; utterThis = new SpeechSynthesisUtterance(results[0].label); synth.speak(utterThis); }
